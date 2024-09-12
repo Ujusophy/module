@@ -18,13 +18,18 @@ jobs:
           terraform_version: 1.3.0
 
       - name: Print Environment Variables
-        run: printenv | grep TF_TOKEN
+        run: |
+          echo "TF_TOKEN_APP_TERRAFORM_IO: $TF_TOKEN_APP_TERRAFORM_IO"
 
       - name: Terraform Init
         run: terraform init
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
 
       - name: Terraform Plan
         run: terraform plan
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
