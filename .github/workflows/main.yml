@@ -17,13 +17,6 @@ jobs:
         with:
           terraform_version: 1.3.0
 
-      - name: Push Changes
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git commit -am "Trigger Terraform Cloud Run"
-          git push
-
       - name: Print Environment Variables
         run: |
           echo "TF_TOKEN_APP_TERRAFORM_IO: $TF_TOKEN_APP_TERRAFORM_IO"
