@@ -17,6 +17,9 @@ jobs:
         with:
           terraform_version: 1.3.0
 
+      - name: Print Environment Variables
+        run: printenv | grep TF_TOKEN
+
       - name: Terraform Init
         run: terraform init
 
